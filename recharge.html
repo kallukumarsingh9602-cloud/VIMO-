@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recharge - GSM Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Simple Header -->
+    <header class="simple-header">
+        <button class="btn-back-header" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <h2>Recharge</h2>
+        <button class="btn-history" onclick="window.location.href='transactions.html'">
+            <i class="fas fa-history"></i>
+        </button>
+    </header>
+    <!-- Recharge Section -->
+    <section class="recharge-section">
+        <div class="container-small">
+            <!-- Balance Display -->
+            <div class="balance-card">
+                <div class="balance-info">
+                    <p>Current Balance</p>
+                    <h2 id="currentBalance">$0.00</h2>
+                </div>
+                <i class="fas fa-wallet"></i>
+            </div>
+            <!-- Amount Selection -->
+            <div class="amount-section">
+                <h3>Select Amount</h3>
+                <div class="amount-grid">
+                    <button class="amount-btn" onclick="selectAmount(100)">
+                        <span class="amount-value">$100</span>
+                        <span class="amount-bonus">+$10 Bonus</span>
+                    </button>
+                    <button class="amount-btn" onclick="selectAmount(500)">
+                        <span class="amount-value">$500</span>
+                        <span class="amount-bonus">+$50 Bonus</span>
+                    </button>
+                    <button class="amount-btn" onclick="selectAmount(1000)">
+                        <span class="amount-value">$1000</span>
+                        <span class="amount-bonus">+$100 Bonus</span>
+                    </button>
+                    <button class="amount-btn" onclick="selectAmount(2000)">
+                        <span class="amount-value">$2000</span>
+                        <span class="amount-bonus">+$200 Bonus</span>
+                    </button>
+                    <button class="amount-btn" onclick="selectAmount(5000)">
+                        <span class="amount-value">$5000</span>
+                        <span class="amount-bonus">+$500 Bonus</span>
+                    </button>
+                    <button class="amount-btn" onclick="selectAmount(10000)">
+                        <span class="amount-value">$10000</span>
+                        <span class="amount-bonus">+$1000 Bonus</span>
+                    </button>
+                </div>
+                <!-- Custom Amount -->
+                <div class="custom-amount">
+                    <label>Or Enter Custom Amount</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                        <input type="number" id="customAmount" placeholder="Enter amount" min="10" step="10">
+                    </div>
+                </div>
+            </div>
+            <!-- Payment Methods -->
+            <div class="payment-methods">
+                <h3>Select Payment Method</h3>
+                <div class="payment-grid">
+                    <div class="payment-card" onclick="selectPayment('upi')">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>UPI</span>
+                        <i class="fas fa-check-circle selected-icon"></i>
+                    </div>
+                    <div class="payment-card" onclick="selectPayment('paytm')">
+                        <i class="fas fa-wallet"></i>
+                        <span>Paytm</span>
+                        <i class="fas fa-check-circle selected-icon"></i>
+                    </div>
+                    <div class="payment-card" onclick="selectPayment('phonepe')">
+                        <i class="fas fa-phone"></i>
+                        <span>PhonePe</span>
+                        <i class="fas fa-check-circle selected-icon"></i>
+                    </div>
+                    <div class="payment-card" onclick="selectPayment('gpay')">
+                        <i class="fab fa-google-pay"></i>
+                        <span>Google Pay</span>
+                        <i class="fas fa-check-circle selected-icon"></i>
+                    </div>
+                    <div class="payment-card" onclick="selectPayment('card')">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Debit/Credit</span>
+                        <i class="fas fa-check-circle selected-icon"></i>
+                    </div>
+                    <div class="payment-card" onclick="selectPayment('netbanking')">
+                        <i class="fas fa-university"></i>
+                        <span>Net Banking</span>
+                        <i class="fas fa-check-circle selected-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Recharge Summary -->
+            <div class="recharge-summary">
+                <div class="summary-row">
+                    <span>Recharge Amount:</span>
+                    <span id="summaryAmount">$0.00</span>
+                </div>
+                <div class="summary-row bonus">
+                    <span>Bonus:</span>
+                    <span id="summaryBonus">+$0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total Receivable:</span>
+                    <span id="summaryTotal">$0.00</span>
+                </div>
+            </div>
+            <!-- Recharge Button -->
+            <button class="btn-recharge" onclick="processRecharge()">
+                <i class="fas fa-plus-circle"></i> Recharge Now
+            </button>
+            <!-- Important Notes -->
+            <div class="important-notes">
+                <h4><i class="fas fa-info-circle"></i> Important Notes</h4>
+                <ul>
+                    <li>Minimum recharge amount is $10</li>
+                    <li>Funds will be credited instantly</li>
+                    <li>Bonus will be added automatically</li>
+                    <li>Contact support if any issues</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="firebase-config.js"></script>
+    <script src="recharge.js"></script>
+</body>
+</html>
