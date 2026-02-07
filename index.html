@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSM - Your Entertainment Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-left">
+                    <span><i class="fas fa-phone"></i> +91 1234567890</span>
+                    <span><i class="fas fa-envelope"></i> support@gsm.com</span>
+                </div>
+                <div class="top-right">
+                    <button class="lang-btn" onclick="window.location.href='languages.html'">
+                        <i class="fas fa-globe"></i> English
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><span class="logo-g">G</span><span class="logo-s">S</span><span class="logo-m">M</span></h1>
+                </div>
+                
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                    <a href="activities.html" class="nav-link"><i class="fas fa-gamepad"></i> Activities</a>
+                    <a href="promotion.html" class="nav-link"><i class="fas fa-gift"></i> Promotion</a>
+                    <a href="wallet.html" class="nav-link"><i class="fas fa-wallet"></i> Wallet</a>
+                    <a href="vip.html" class="nav-link"><i class="fas fa-crown"></i> VIP</a>
+                </nav>
+                <div class="header-buttons">
+                    <button class="btn-login" onclick="window.location.href='login.html'">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                    <button class="btn-register" onclick="window.location.href='register.html'">
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="activities.html"><i class="fas fa-gamepad"></i> Activities</a>
+            <a href="promotion.html"><i class="fas fa-gift"></i> Promotion</a>
+            <a href="wallet.html"><i class="fas fa-wallet"></i> Wallet</a>
+            <a href="vip.html"><i class="fas fa-crown"></i> VIP</a>
+            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+        </nav>
+    </div>
+    <!-- Hero Slider -->
+    <section class="hero-slider">
+        <div class="slider-container">
+            <div class="slide active" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="slide-content">
+                    <h2>Welcome to GSM Platform</h2>
+                    <p>Your premium entertainment destination</p>
+                    <button class="btn-hero">Join Now</button>
+                </div>
+            </div>
+            <div class="slide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <div class="slide-content">
+                    <h2>Special Bonus 100%</h2>
+                    <p>First deposit bonus up to $1000</p>
+                    <button class="btn-hero">Claim Bonus</button>
+                </div>
+            </div>
+            <div class="slide" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <div class="slide-content">
+                    <h2>VIP Rewards Program</h2>
+                    <p>Exclusive benefits for VIP members</p>
+                    <button class="btn-hero">Learn More</button>
+                </div>
+            </div>
+        </div>
+        <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+        <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+    </section>
+    <!-- Quick Access Cards -->
+    <section class="quick-access">
+        <div class="container">
+            <div class="quick-grid">
+                <div class="quick-card" onclick="window.location.href='recharge.html'">
+                    <i class="fas fa-plus-circle"></i>
+                    <h3>Recharge</h3>
+                    <p>Add funds instantly</p>
+                </div>
+                <div class="quick-card" onclick="window.location.href='withdrawal.html'">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Withdraw</h3>
+                    <p>Fast withdrawals</p>
+                </div>
+                <div class="quick-card" onclick="window.location.href='promotion.html'">
+                    <i class="fas fa-gift"></i>
+                    <h3>Promotions</h3>
+                    <p>Exciting bonuses</p>
+                </div>
+                <div class="quick-card" onclick="window.location.href='support.html'">
+                    <i class="fas fa-headset"></i>
+                    <h3>Support</h3>
+                    <p>24/7 assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Popular Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <h3>Category 1</h3>
+                    <p>50+ options available</p>
+                    <button class="btn-category">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>Category 2</h3>
+                    <p>30+ options available</p>
+                    <button class="btn-category">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Category 3</h3>
+                    <p>40+ options available</p>
+                    <button class="btn-category">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Category 4</h3>
+                    <p>25+ options available</p>
+                    <button class="btn-category">Explore</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>1M+</h3>
+                    <p>Active Users</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>$50M+</h3>
+                    <p>Total Rewards</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>500+</h3>
+                    <p>Total Options</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24/7</h3>
+                    <p>Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose GSM?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure & Safe</h3>
+                    <p>Advanced security encryption for your data</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Transactions</h3>
+                    <p>Quick deposits and withdrawals</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Friendly</h3>
+                    <p>Access anywhere, anytime</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Always here to help you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About GSM</h3>
+                    <p>Your trusted entertainment platform with millions of satisfied users worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="support.html">Customer Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="recharge.html">Recharge</a></li>
+                        <li><a href="withdrawal.html">Withdrawal</a></li>
+                        <li><a href="vip.html">VIP Program</a></li>
+                        <li><a href="promotion.html">Promotions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91 1234567890</li>
+                        <li><i class="fas fa-envelope"></i> support@gsm.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GSM Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
