@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - GSM Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h1 class="logo-text"><span class="logo-g">G</span><span class="logo-s">S</span><span class="logo-m">M</span></h1>
+                <h2>Create Account</h2>
+                <p>Join thousands of users today!</p>
+            </div>
+            <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="regUsername" placeholder="Choose a username" required minlength="4">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Mobile Number</label>
+                    <input type="tel" id="regMobile" placeholder="Enter mobile number" required pattern="[0-9]{10}">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email (Optional)</label>
+                    <input type="email" id="regEmail" placeholder="Enter email address">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <div class="password-input">
+                        <input type="password" id="regPassword" placeholder="Create password" required minlength="6">
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('regPassword')"></i>
+                    </div>
+                    <div class="password-strength" id="passwordStrength"></div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Confirm Password</label>
+                    <div class="password-input">
+                        <input type="password" id="regConfirmPassword" placeholder="Confirm password" required>
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('regConfirmPassword')"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-gift"></i> Invitation Code (Optional)</label>
+                    <input type="text" id="invitationCode" placeholder="Enter invitation code if you have">
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span>I agree to the <a href="terms.html" target="_blank">Terms & Conditions</a> and <a href="privacy.html" target="_blank">Privacy Policy</a></span>
+                    </label>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-user-plus"></i> Register Now
+                </button>
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+                <div class="social-login">
+                    <button type="button" class="btn-social google">
+                        <i class="fab fa-google"></i> Sign up with Google
+                    </button>
+                    <button type="button" class="btn-social facebook">
+                        <i class="fab fa-facebook"></i> Sign up with Facebook
+                    </button>
+                </div>
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="login.html">Login Here</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="auth-side">
+            <div class="auth-side-content">
+                <i class="fas fa-gift"></i>
+                <h3>Welcome Bonus</h3>
+                <p>Get exclusive rewards when you sign up!</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> 100% Welcome Bonus</li>
+                    <li><i class="fas fa-check"></i> Free Daily Rewards</li>
+                    <li><i class="fas fa-check"></i> VIP Membership Benefits</li>
+                    <li><i class="fas fa-check"></i> 24/7 Customer Support</li>
+                </ul>
+            </div>
+        </div>
+        <button class="btn-back" onclick="window.location.href='index.html'">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </button>
+    </div>
+    <script type="module" src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
