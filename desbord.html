@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GSM Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (User Logged In) -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><span class="logo-g">G</span><span class="logo-s">S</span><span class="logo-m">M</span></h1>
+                </div>
+                
+                <nav class="main-nav">
+                    <a href="dashboard.html" class="nav-link active"><i class="fas fa-th-large"></i> Dashboard</a>
+                    <a href="wallet.html" class="nav-link"><i class="fas fa-wallet"></i> Wallet</a>
+                    <a href="activities.html" class="nav-link"><i class="fas fa-gamepad"></i> Activities</a>
+                    <a href="transactions.html" class="nav-link"><i class="fas fa-history"></i> History</a>
+                </nav>
+                <div class="user-menu">
+                    <div class="user-balance">
+                        <i class="fas fa-coins"></i>
+                        <span id="userBalance">$0.00</span>
+                    </div>
+                    <div class="user-profile" onclick="toggleUserMenu()">
+                        <img src="https://ui-avatars.com/api/?name=User&background=667eea&color=fff" alt="User">
+                        <span id="username">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- User Dropdown Menu -->
+    <div class="user-dropdown" id="userDropdown">
+        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+        <a href="wallet.html"><i class="fas fa-wallet"></i> My Wallet</a>
+        <a href="transactions.html"><i class="fas fa-history"></i> Transactions</a>
+        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+    <!-- Dashboard Content -->
+    <section class="dashboard-section">
+        <div class="container">
+            <!-- Wallet Card -->
+            <div class="wallet-card">
+                <div class="wallet-header">
+                    <div>
+                        <h3>Total Balance</h3>
+                        <h2 id="totalBalance">$0.00</h2>
+                    </div>
+                    <div class="vip-badge">
+                        <i class="fas fa-crown"></i>
+                        <span>VIP 0</span>
+                    </div>
+                </div>
+                <div class="wallet-actions">
+                    <button class="wallet-btn recharge" onclick="window.location.href='recharge.html'">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Recharge</span>
+                    </button>
+                    <button class="wallet-btn withdraw" onclick="window.location.href='withdrawal.html'">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Withdraw</span>
+                    </button>
+                    <button class="wallet-btn transfer" onclick="window.location.href='transfer.html'">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Transfer</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Quick Stats -->
+            <div class="stats-grid-dash">
+                <div class="stat-card-dash">
+                    <i class="fas fa-dollar-sign"></i>
+                    <div>
+                        <h4>Today's Earnings</h4>
+                        <h3>$0.00</h3>
+                    </div>
+                </div>
+                <div class="stat-card-dash">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h4>Total Earnings</h4>
+                        <h3>$0.00</h3>
+                    </div>
+                </div>
+                <div class="stat-card-dash">
+                    <i class="fas fa-trophy"></i>
+                    <div>
+                        <h4>Total Wins</h4>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="stat-card-dash">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <h4>Referrals</h4>
+                        <h3>0</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Transactions -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-history"></i> Recent Transactions</h3>
+                    <a href="transactions.html">View All</a>
+                </div>
+                <div class="transactions-list">
+                    <div class="transaction-item">
+                        <div class="transaction-icon deposit">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <h4>Deposit</h4>
+                            <p>2024-02-07 19:30</p>
+                        </div>
+                        <div class="transaction-amount positive">
+                            +$100.00
+                        </div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon withdraw">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <h4>Withdrawal</h4>
+                            <p>2024-02-06 15:20</p>
+                        </div>
+                        <div class="transaction-amount negative">
+                            -$50.00
+                        </div>
+                    </div>
+                    <div class="empty-state" id="emptyTransactions" style="display: none;">
+                        <i class="fas fa-inbox"></i>
+                        <p>No transactions yet</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Promotions -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-gift"></i> Available Promotions</h3>
+                    <a href="promotion.html">View All</a>
+                </div>
+                <div class="promotions-grid">
+                    <div class="promo-card">
+                        <div class="promo-badge">HOT</div>
+                        <h4>Welcome Bonus</h4>
+                        <p>100% up to $1000</p>
+                        <button class="btn-promo">Claim Now</button>
+                    </div>
+                    <div class="promo-card">
+                        <div class="promo-badge">NEW</div>
+                        <h4>Daily Bonus</h4>
+                        <p>Get rewards every day</p>
+                        <button class="btn-promo">Claim Now</button>
+                    </div>
+                    <div class="promo-card">
+                        <div class="promo-badge">VIP</div>
+                        <h4>VIP Rewards</h4>
+                        <p>Exclusive VIP benefits</p>
+                        <button class="btn-promo">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="firebase-config.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
